@@ -1,0 +1,24 @@
+{% extends 'islom/base.html' %}
+{% load static %}
+{% block content %}
+{% for category, products in products_by_categories.items %}
+<section>
+    <h2>{{category}}</h2>
+    <div class="container">
+        {% for p in products %}
+        <div class="item">
+            <div class="image" style="width: 100%; height: 230px;padding-top: 30px"><img src="{% static 'images/rasmi.jpeg' %}" alt="">
+            </div>
+            <p class="name">{{p.name}}</p>
+            <p class="info">{{p.content}}</p>
+            <div class="bottom">
+                <p class="price">{{p.price}} сум</p>
+                <button class="button">Выбрать</button>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</section>
+{% endfor %}
+{% endblock %}
